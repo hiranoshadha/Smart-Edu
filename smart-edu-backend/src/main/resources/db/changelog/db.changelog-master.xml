@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="1" author="smartedu">
+        <createTable tableName="classes">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="title" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="varchar(1000)"/>
+            <column name="exam" type="varchar(50)"/>
+            <column name="teacher" type="varchar(255)"/>
+            <column name="rating" type="double"/>
+            <column name="reviews" type="int"/>
+            <column name="price" type="varchar(100)"/>
+            <column name="schedule" type="text"/>
+            <column name="syllabus" type="text"/>
+            <column name="features" type="text"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2" author="smartedu">
+        <insert tableName="classes">
+            <column name="title" value="ගණිතය"/>
+            <column name="description" value="Learn the fundamentals of mathematics"/>
+            <column name="exam" value="O/L"/>
+            <column name="teacher" value="Mr. Perera"/>
+            <column name="rating" value="4.8"/>
+            <column name="reviews" value="120"/>
+            <column name="price" value="Rs. 3000/month"/>
+            <column name="schedule" value='[{"day":"Monday","time":"3:00 PM - 5:00 PM","type":"Theory"}]'/>
+            <column name="syllabus" value='[{"week":1,"topic":"Numbers and Operations","duration":"3 hours"}]'/>
+            <column name="features" value='[{"title":"Study Materials","description":"Comprehensive study materials and notes"}]'/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
